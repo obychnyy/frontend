@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Контакты</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="contacts.html">Контакты</a>
+      <a href="gallery.html">Галерея</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 class="title-h2">Связаться с нами</h2>
+    <p class="p-text">вы можете позвонить или написать нам</p>
+
+    <!-- картинка (убедись, что picture.jpg реально лежит рядом или в /img) -->
+    <img src="picture.jpg" alt="Офис компании" width="350">
+
+    <h4 class="title-h4">Адрес</h4>
+    <p class="p-text">Садовая, 16, частный дом</p>
+
+    <h4 class="title-h4">Телефон</h4>
+    <ul>
+      <li>+7 922 436-21-63</li>
+      <li>+7 933 247-13-19</li>
+    </ul>
+
+    <h4 class="title-h4">Мы Online</h4>
+    <ul>
+      <li><a href="mailto:vyacheslav_kazantsev@list.ru">Написать на почту</a></li>
+      <li><a href="https://clickmedia.ru" target="_blank" rel="noopener">Наш сайт</a></li>
+    </ul>
+
+    <h4 class="title-h4">Отправить сообщение</h4>
+    <form action="#" method="post">
+      <label for="full_name">Full Name</label><br>
+      <input class="form-input" id="full_name" type="text" name="nameholder" placeholder="Имя">
+      <br><br>
+
+      <label for="email">Email</label><br>
+      <input class="form-input" id="email" type="email" name="mail" placeholder="Почта">
+      <br><br>
+
+      <label for="message">Message</label><br>
+      <textarea class="form-input" id="message" name="message" rows="4" cols="30" placeholder="Введите сообщение"></textarea>
+      <br><br>
+
+      <button class="btn-submit" type="submit">submit</button>
+    </form>
+
+    <br>
+
+    <!-- исправленный iframe карты (ширина ≤ 350px) -->
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29703.932328906198!2d69.03085841961415!3d60.9830722192047!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x439e64e43988f8fb%3A0xa84b7a18607e9595!2z0KHQsNC00L7QstCw0Y8g0YPQuy4sIDE2LCDQpdCw0L3RgtGLLdCc0LDQvdGB0LjQudGB0LosINCl0LDQvdGC0Yst0JzQsNC90YHQuNC50YHQutC40Lkg0LDQstGC0L7QvdC-0LzQvdGL0Lkg0L7QutGA0YPQsywg0KDQvtGB0YHQuNGPLCA2MjgwMDI!5e0!3m2!1sru!2sse!4v1758394445422!5m2!1sru!2sse"
+      width="350" height="250"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </main>
+
+  <footer>
+    <h3 class="title-h3">Это подвал</h3>
+    <p class="p-text">здесь будут контакты для сайта</p>
+
+    <hr>
+
+    <!-- список из задания после hr -->
+    <ul>
+      <li>это произвольный текст 6 слов кстати</li>
+      <li>+7 951 980-68-47</li>
+      <li>v.kazsantsev@icloud.com</li>
+    </ul>
+
+    <!-- ещё один список контактов (как в части 2 п.2.c) -->
+    <ul>
+      <li>звоните в любое время</li>
+      <li>+7 922 436-21-63</li>
+      <li>vyacheslav_kazantsev@list.ru</li>
+    </ul>
+
+    <p class="p-text">Казанцев Вячеслав Андреевич</p>
+  </footer>
+
+</body>
+</html>

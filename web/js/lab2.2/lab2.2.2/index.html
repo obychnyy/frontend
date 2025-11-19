@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Деление с остатком</title>
+</head>
+
+<body>
+    <script>
+        window.onload = getResult
+
+        function getResult() {
+            let a = parseInt(prompt("Введите делимое"))
+            if (Number.isNaN(a)) {
+                alert("Это не похоже на число...")
+                return
+            }
+
+            let b = parseInt(prompt("Введите делитель"))
+            if (Number.isNaN(b) || b == 0) {
+                alert("Я не умею на это делить")
+                return
+            }
+            
+            let c = Math.floor(a / b)
+            let d = a % b
+
+            alert(`Целая часть: ${c}\nОстаточк: ${d}`)
+        }
+    </script>
+</body>

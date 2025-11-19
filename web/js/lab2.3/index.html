@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рисуем чета</title>
+</head>
+
+<body>
+    <h1>Давайте порисуем</h1>
+    <input id="size" type="number" placeholder="Введите размер рисунка" min="0" step="1">
+    <button onclick="getPrint()">Нарисовать</button>
+    <p id="output"></p>
+
+    <script>
+        function getPrint() {
+            let size = parseInt((document.getElementById(size).value), 10)
+            let print = [[]]
+
+            if (isNaN(size) || n<0) {
+                alert("Это не похоже на размер(");
+                return;
+            }
+
+            let length = size + 2
+            let offset = 1
+            let result = ""
+
+            result += " ".repeat(length-offset++) + "#\n"
+            result += " ".repeat(length-offset++) + "#\n"
+
+            for (let i = n - 1; i >= 0; i--) {
+                result += " ".repeat(length-offset++) + "#"
+                result += "0".repeat(Math.max(0, n - i))
+                result += "#\n"
+            }
+
+            n--
+
+            for  (let i=0; i<n; i++) {
+                result += " ".repeat(length - --offset + 1) + "#"
+                result += "0".repeat(n-i)
+                result += "#\n"
+            }
+
+            result += " ".repeat(length - --offset + 1) + "##\n"
+            result += " ".repeat(length - --offset + 1) + "#"
+
+            alert("is worked")
+
+            document.getElementById("output").textContent = result
+        }
+    </script>
+</body>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Считаем вагоны</title>
+</head>
+
+<body>
+    <script>
+        window.onload = countBoxes
+
+        function countBoxes() {
+            const width = 30
+            const height = 40
+            const depth = 50
+            const poro = 5
+
+            let buyed = parseInt(prompt("Введите количество заказов"))
+            if (Number.isNaN(buyed)) {
+                alert("Какое-то странное количество...")
+                return
+            }
+            let wagonWidth = parseInt(prompt("Введите ширину вагона"))
+            if (Number.isNaN(wagonWidth)) {
+                alert("это точно ширина?")
+                return
+            }
+            let wagonHeight = parseInt(prompt("Введите высоту вагона"))
+            if (Number.isNaN(wagonHeight)) {
+                alert("Не похоже на высоту(")
+                return
+            }
+            let wagonDepth = parseInt(prompt("Введите глубину вагона"))
+            if (Number.isNaN(wagonDepth)) {
+                alert("Дай число пж")
+                return
+            }
+            
+            let k = []
+            let nW = Math.floor((wagonWidth+poro)/(width+poro))
+            let nH = Math.floor((wagonHeight+poro)/(height+poro))
+            let nD = Math.floor((wagonDepth+poro)/(depth+poro))
+            k.push(nW*nD*nH)
+            nW = Math.floor((wagonWidth+poro)/(width+poro))
+            nH = Math.floor((wagonHeight+poro)/(depth+poro))
+            nD = Math.floor((wagonDepth+poro)/(height+poro))
+            k.push(nW*nD*nH)
+            nW = Math.floor((wagonWidth+poro)/(depth+poro))
+            nH = Math.floor((wagonHeight+poro)/(width+poro))
+            nD = Math.floor((wagonDepth+poro)/(height+poro))
+            k.push(nW*nD*nH)
+            nW = Math.floor((wagonWidth+poro)/(depth+poro))
+            nH = Math.floor((wagonHeight+poro)/(height+poro))
+            nD = Math.floor((wagonDepth+poro)/(width+poro))
+            k.push(nW*nD*nH)
+            nW = Math.floor((wagonWidth+poro)/(height+poro))
+            nH = Math.floor((wagonHeight+poro)/(depth+poro))
+            nD = Math.floor((wagonDepth+poro)/(width+poro))
+            k.push(nW*nD*nH)
+            nW = Math.floor((wagonWidth+poro)/(height+poro))
+            nH = Math.floor((wagonHeight+poro)/(width+poro))
+            nD = Math.floor((wagonDepth+poro)/(depth+poro))
+            k.push(nW*nD*nH)
+
+            let max = Math.max(...k);
+
+            if (max === 0) {
+                alert("Коробки не помещаются в вагон ни в одной ориентации");
+                return;
+            }
+
+            let numberWagons = Math.ceil(buyed/max)
+            alert(`Вам нужно ${numberWagons} вагонов`)
+        }
+    </script>
+</body>

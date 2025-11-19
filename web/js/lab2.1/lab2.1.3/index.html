@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset = "UTF-8">
+    <title>Холодильник</title>
+</head>
+
+<body>
+    <h1>Вот так будет выглядеть холодильник</h1>
+    <button onclick="fridge.getFridge()">Как??</button>
+    <p id="color"></p>
+    <p id="mark"></p>
+    <p id="model"></p>
+    <p id="price"></p>
+
+    <script>
+        class Fridge {
+            constructor(color, mark, model, price) {
+                this.color = color
+                this.mark = mark
+                this.model = model
+                this.price = price
+            }
+
+            fill() {
+                let listMarks = ['LG', 'Samsung', 'Xiaomi', 'AEG', 'hotpoint'];
+                let listModels = ['SuperCold', 'ExtraIce', 'MegaFreeze', 'NanoSnow', 'UltraMoroz'];
+                let listColors = ['Burgundy', 'Iced Silver', 'Snow White', 'Total Black', 'Comet Yellow'];
+                let listPrices = ['$1990', '$2590', '$700', '5 deneg', '137990₽'];
+
+                this.color = listColors[Math.floor(Math.random() * listColors.length)];
+                this.mark = listMarks[Math.floor(Math.random() * listMarks.length)];
+                this.model = listModels[Math.floor(Math.random() * listModels.length)];
+                this.price = listPrices[Math.floor(Math.random() * listPrices.length)];
+            }
+
+            getFridge() {
+                this.fill()
+
+                document.getElementById("color").textContent = `Цвет: ${this.color}`;
+                document.getElementById("mark").textContent = `Марка: ${this.mark}`;
+                document.getElementById("model").textContent = `Модель: ${this.model}`;
+                document.getElementById("price").textContent = `Цена: ${this.price}`;
+            }
+        }
+
+        const fridge = new Fridge();
+    </script>
+</body>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вычисление cos(x)</title>
+</head>
+
+<body>
+    <h1>вычисление cox(x) (Вариант 2)</h1>
+    <p>Введите х в радианах</p>
+    <input id="inputX" type="number" step="any" placeholder="Введите x">
+    <button onclick="calculateCos()">Посчитать</button>
+    <p id="output"></p>
+
+    <script>
+      function calculateCos() {
+        let x = parseFloat(document.getElementById("inputX").value)
+
+        if (isNaN(x)){
+          document.getElementById("output").textContent = "Введите корректное число";
+          return;
+        }
+
+        let result = Math.cos(x)
+
+        document.getElementById("output").textContent = result.toFixed(4);
+      }
+    </script>
+</body>

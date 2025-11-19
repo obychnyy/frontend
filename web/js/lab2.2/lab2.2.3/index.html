@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset-"UTF-8">
+    <title>День недели</title>
+</head>
+
+<body>
+    <script>
+        window.onload = getName
+
+        function getName() {
+            let num = parseInt(prompt("Введите номер дня недели"))
+
+            if (Number.isNaN(num) || 1>num || 7<num) {
+                alert("Это точно номер дня недели?")
+                return
+            }
+
+            let name = ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
+            num -= 1
+            alert(name[num])
+        }
+    </script>
+</body>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset = "UTF-8">
+    <title>Замена текста</title>
+</head>
+
+<body>
+    <h1>Здесь мы будем менять текст</h1>
+    <p id="output">Вы хотите заменить текст?</p>
+    <button onclick="textEdit()">ДА! (газ)</button>
+    <button onclick="sure()">Неееее</button>
+
+    <script>
+        function textEdit() {
+            let a = 5
+            let b = 7
+            let result = a+b
+
+            document.getElementById("output").textContent = result;
+        }
+
+        function sure() {
+            document.getElementById("output").textContent = "Может всё-таки хотите заменить текст?";
+        }
+
+    </script>
+</body>
