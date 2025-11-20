@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Работа</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="video-page" id="lab-app">
+    <a class="back-link" href="../index.html">← Назад</a>
+    <h1 class="title-h1">{{ title }}</h1>
+    <p class="p-text">{{ desc }}</p>
+
+    <div class="video-frame">
+      <div class="input-row">
+        <label class="tagline">Код</label>
+        <textarea class="text-input" rows="10" v-model="code"></textarea>
+      </div>
+      <div class="add-actions">
+        <button class="primary-btn" @click="runCode">Выполнить</button>
+        <button class="folder-btn" @click="resetOutput">Очистить вывод</button>
+      </div>
+      <div class="input-row">
+        <label class="tagline">Результат</label>
+        <pre class="text-input" style="min-height:120px; white-space: pre-wrap; overflow:auto;">{{ output }}</pre>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const startTitle = params.get('title') ? decodeURIComponent(params.get('title')) : 'Работа';
+    const startDesc = params.get('desc') ? decodeURIComponent(params.get('desc')) : 'Описание отсутствует';
+    const startCode = params.get('code') ? decodeURIComponent(params.get('code')) : "console.log('hello');";
+
+    const labApp = Vue.createApp({
+      data() {
+        return {
+          title: startTitle,
+          desc: startDesc,
+          code: startCode,
+          output: ''
+        };
+      },
+      methods: {
+        runCode() {
+          try {
+            const captured = [];
+            const customConsole = {
+              log: (...args) => captured.push(args.map(a => String(a)).join(' '))
+            };
+            const fn = new Function('console', this.code);
+            fn(customConsole);
+            this.output = captured.join('\\n');
+          } catch (err) {
+            this.output = 'Ошибка: ' + err.message;
+          }
+        },
+        resetOutput() {
+          this.output = '';
+        }
+      }
+    });
+
+    labApp.mount('#lab-app');
+  </script>
+</body>
+</html>

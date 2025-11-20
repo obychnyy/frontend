@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Видео</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="video-page" id="player-app">
+    <a class="back-link" href="../index.html">← Назад к портфолио</a>
+    <h1 class="title-h1">{{ title }}</h1>
+    <p class="p-text">Воспроизведение файла {{ file }}</p>
+
+    <div class="video-frame">
+      <video class="video-player" controls preload="metadata" v-if="file">
+        <source :src="file" type="video/mp4">
+        Ваш браузер не поддерживает видео.
+      </video>
+      <p class="p-text" v-else>Файл не указан.</p>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file') || '';
+    const title = params.get('title') ? decodeURIComponent(params.get('title')) : 'Видео';
+
+    const playerApp = Vue.createApp({
+      data() {
+        return {
+          file,
+          title
+        };
+      }
+    });
+
+    playerApp.mount('#player-app');
+  </script>
+</body>
+</html>

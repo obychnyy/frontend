@@ -1,158 +1,392 @@
-/* ===== База страницы ===== */
+/* Light glassmorphism in a Nothing/Apple spirit */
+:root {
+  --bg-1: #050914;
+  --bg-2: #0c1224;
+  --bg-3: #0f1a34;
+  --text-strong: #eef3ff;
+  --text-soft: #a9b5d1;
+  --accent: #7dc3ff;
+  --frost: rgba(255, 255, 255, 0.06);
+  --frost-strong: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.2);
+  --shadow: 0 28px 60px rgba(0, 0, 0, 0.35);
+}
+
 html, body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif;
-  background: radial-gradient(circle at top, #f5f7ff 0, #f3f4f6 40%, #eef1f5 100%);
-  color: #111827;
+  background:
+    radial-gradient(130% 80% at 14% 10%, rgba(57, 121, 255, 0.4), transparent 46%),
+    radial-gradient(120% 90% at 84% 12%, rgba(0, 216, 255, 0.32), transparent 52%),
+    radial-gradient(140% 90% at 50% 96%, rgba(150, 93, 255, 0.26), transparent 54%),
+    linear-gradient(135deg, var(--bg-1) 0%, var(--bg-2) 42%, var(--bg-3) 100%);
+  color: var(--text-strong);
+  background-attachment: fixed;
+  position: relative;
+  min-height: 100%;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(720px 520px at 12% 10%, rgba(57, 121, 255, 0.32), transparent 60%),
+    radial-gradient(720px 520px at 88% 8%, rgba(0, 216, 255, 0.26), transparent 60%),
+    radial-gradient(720px 520px at 50% 90%, rgba(150, 93, 255, 0.22), transparent 66%),
+    radial-gradient(120% 90% at 50% -12%, rgba(255, 255, 255, 0.12), transparent 76%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0));
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  z-index: 0;
 }
 
 #app {
-  max-width: 960px;
+  max-width: 1080px;
   margin: 0 auto;
-  padding: 40px 24px 60px;
+  padding: 48px 28px 72px;
+  position: relative;
+  z-index: 1;
 }
 
-/* ===== Типографика ===== */
 .title-h1 {
-  font-size: 40px;
+  font-size: 42px;
   font-weight: 700;
   letter-spacing: -0.03em;
   margin: 0 0 12px;
-  color: #020617;
+  color: var(--text-strong);
 }
 
 .title-h2 {
   font-size: 28px;
   font-weight: 600;
-  margin: 24px 0 12px;
-  color: #0f172a;
+  margin: 28px 0 12px;
+  color: var(--text-strong);
 }
 
 .title-h3 {
   font-size: 18px;
   font-weight: 600;
   margin: 0 0 8px;
-  color: #0f172a;
+  color: var(--text-strong);
 }
 
 .p-text {
   font-size: 15px;
-  line-height: 1.6;
-  color: #4b5563;
-  margin: 0 0 8px;
+  line-height: 1.65;
+  color: var(--text-soft);
+  margin: 0 0 10px;
 }
 
-/* ===== Шапка ===== */
 header {
-  padding: 40px 0 24px;
+  padding: 44px 0 28px;
   text-align: left;
 }
 
 header .p-text {
-  margin-top: 4px;
-  opacity: 0.7;
+  margin-top: 6px;
+  opacity: 0.75;
 }
 
-/* ===== Папки (кнопки) ===== */
 .folders {
   display: flex;
-  gap: 16px;
-  margin: 20px 0 28px;
+  gap: 14px;
+  margin: 18px 0 30px;
   flex-wrap: wrap;
 }
 
 .folder-btn {
-  padding: 12px 20px;
+  padding: 12px 18px;
   border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  background: rgba(255, 255, 255, 0.85);
-  color: #0f172a;
+  border: 1px solid var(--border);
+  background: var(--frost);
+  color: var(--text-strong);
   font-size: 15px;
   cursor: pointer;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 14px 30px rgba(15, 23, 42, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 16px 32px rgba(10, 21, 41, 0.07);
   transition:
-    transform 0.15s ease,
-    box-shadow 0.15s ease,
-    background 0.15s ease,
-    border-color 0.15s ease,
-    opacity 0.15s ease;
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease;
 }
 
 .folder-btn:hover {
   transform: translateY(-2px);
-  box-shadow:
-    0 18px 40px rgba(15, 23, 42, 0.12);
-  background: #ffffff;
-  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 24px 46px rgba(10, 21, 41, 0.12);
+  border-color: rgba(76, 125, 240, 0.6);
+  background: var(--frost-strong);
+  color: var(--text-strong);
+}
+
+.folder-btn.active {
+  border-color: rgba(76, 125, 240, 0.8);
+  background: var(--frost-strong);
+  color: var(--accent);
+  box-shadow: 0 22px 50px rgba(10, 21, 41, 0.12);
 }
 
 .folder-btn:active {
   transform: translateY(0);
-  box-shadow:
-    0 12px 22px rgba(15, 23, 42, 0.12);
-  opacity: 0.9;
+  box-shadow: 0 12px 22px rgba(10, 21, 41, 0.12);
+  opacity: 0.95;
 }
 
-/* ===== Карточки ===== */
 .cards {
   list-style: none;
   padding: 0;
   margin: 16px 0 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 .card {
-  padding: 16px 20px;
+  padding: 18px 22px;
   border-radius: 18px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(148, 163, 184, 0.35);
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: var(--frost);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease,
-    border-color 0.2s ease,
-    background 0.2s ease;
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    background 200ms ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow:
-    0 24px 60px rgba(15, 23, 42, 0.12);
-  border-color: rgba(79, 70, 229, 0.6);
-  background: #ffffff;
+  box-shadow: 0 32px 64px rgba(10, 21, 41, 0.16);
+  border-color: rgba(76, 125, 240, 0.6);
+  background: var(--frost-strong);
 }
 
 .card a {
   display: inline-flex;
-  margin-top: 6px;
+  margin-top: 8px;
   font-size: 14px;
   text-decoration: none;
-  color: #2563eb;
+  color: var(--accent);
   align-items: center;
-  transition: opacity 0.15s ease;
+  gap: 6px;
+  transition: opacity 140ms ease, transform 140ms ease;
 }
 
 .card a:hover {
-  opacity: 0.7;
+  opacity: 0.8;
+  transform: translateX(2px);
 }
 
-/* ===== Футер ===== */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 18px;
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.back-link:hover {
+  opacity: 0.8;
+  transform: translateX(-2px);
+}
+
+.video-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.video-frame {
+  background: var(--frost);
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 16px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.video-player {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 0;
+  border-radius: 14px;
+  background: #000000;
+}
+
+.add-panel {
+  padding: 18px 22px;
+  border-radius: 18px;
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.add-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.primary-btn {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: linear-gradient(135deg, rgba(125, 195, 255, 0.3), rgba(57, 121, 255, 0.25));
+  color: var(--text-strong);
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.24);
+  transition: transform 140ms ease, box-shadow 140ms ease, opacity 140ms ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.32);
+}
+
+.primary-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.dropzone {
+  margin-top: 14px;
+  padding: 18px;
+  border: 1.5px dashed rgba(255, 255, 255, 0.32);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+  color: var(--text-soft);
+  transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
+}
+
+.dropzone.dragover {
+  border-color: var(--accent);
+  background: rgba(125, 195, 255, 0.08);
+  color: var(--text-strong);
+}
+
+.input-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.text-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-strong);
+  outline: none;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.text-input:focus {
+  border-color: rgba(125, 195, 255, 0.8);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.tagline {
+  font-size: 13px;
+  color: var(--text-soft);
+  display: block;
+  margin: 0 0 4px;
+}
+
+.video-tags {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+.add-card {
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-self: stretch;
+  height: auto;
+}
+
+.add-card .add-actions {
+  margin-top: 4px;
+}
+
+.add-card .folder-btn {
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+
+.add-card .text-input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+
+.add-card textarea.text-input {
+  resize: vertical;
+  min-width: 100%;
+}
+
+.video-frame .text-input {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.video-frame textarea.text-input {
+  resize: vertical;
+}
+
+.video-frame .add-actions {
+  margin-top: 0;
+  gap: 12px;
+}
+
+.video-frame .primary-btn {
+  border-radius: 12px;
+}
+
+.video-frame .folder-btn {
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+
 footer {
-  margin-top: 40px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(148, 163, 184, 0.4);
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.6);
   text-align: center;
 }
 
 footer .p-text {
   font-size: 13px;
-  color: #6b7280;
+  color: #6b768a;
   margin: 8px 0 0;
 }

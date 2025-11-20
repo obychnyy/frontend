@@ -2,11 +2,11 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Моя первая страница</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Портфолио Вячеслава</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 </head>
-
 <body>
   <div id="app">
     <header>
@@ -18,13 +18,14 @@
       <section class="folders">
         <button
           class="folder-btn"
-          @click="activeFolder = 'UGRASU'"
+          :class="{ active: activeFolder === 'UGRASU' }"
+          @click="activeFolder = 'UGRASU'; activeCategory = null;"
         >
           ЮГУ
         </button>
-
         <button
           class="folder-btn"
+          :class="{ active: activeFolder === 'clickmedia' }"
           @click="activeFolder = 'clickmedia'"
         >
           Кликмедиа
@@ -32,31 +33,112 @@
       </section>
 
       <p class="p-text" v-if="!activeFolder">
-        Выберите папку, чтобы посмотреть работы.
+        Выберите папку, чтобы посмотреть материалы.
       </p>
 
+      <!-- ЮГУ -->
       <section v-if="activeFolder === 'UGRASU'">
-        <h2 class="title-h2">ЮГУ · Учебные работы</h2>
+        <h2 class="title-h2">Папки ЮГУ</h2>
         <ul class="cards">
-          <li class="card">
-            <h3 class="title-h3">Веб-разработка</h3>
-            <p class="p-text">Лабы, мини-сайты</p>
-          </li>
-
-          <li class="card">
-            <h3 class="title-h3">ООП</h3>
-            <p class="p-text">Проекты на C#/Python с классами и объектами.</p>
-          </li>
-
-          <li class="card">
-            <h3 class="title-h3">Тестирование</h3>
-            <p class="p-text">Проекты по тестированию ПО</p>
+          <li
+            class="card"
+            v-for="folder in ugruFolders"
+            :key="folder.id"
+            @click="selectCategory(folder.id)"
+            style="cursor: pointer;"
+          >
+            <h3 class="title-h3">{{folder.title}}</h3>
+            <p class="p-text">{{folder.description}}</p>
           </li>
         </ul>
+
+        <section v-if="activeCategory">
+          <h2 class="title-h2">Материалы: {{ activeCategoryTitle }}</h2>
+          <ul class="cards">
+            <li
+              class="card"
+              v-for="item in activeItems"
+              :key="item.id"
+            >
+              <h3 class="title-h3">{{item.title}}</h3>
+              <p class="p-text">{{item.description}}</p>
+              <a class="p-text" :href="item.link" target="_self">Открыть →</a>
+            </li>
+
+            <li class="card add-card">
+              <h3 class="title-h3">Добавить</h3>
+              <p class="p-text">Создайте новую работу в этой папке.</p>
+              <div class="input-row">
+                <label class="tagline">Название</label>
+                <input class="text-input" v-model="newTile.title" placeholder="Название работы">
+              </div>
+              <div class="input-row">
+                <label class="tagline">Описание</label>
+                <textarea class="text-input" rows="2" v-model="newTile.description" placeholder="Краткое описание"></textarea>
+              </div>
+              <div class="input-row">
+                <label class="tagline">Код (необязательно)</label>
+                <textarea class="text-input" rows="3" v-model="newTile.code" placeholder="print('hello world')"></textarea>
+              </div>
+              <div class="add-actions">
+                <button class="primary-btn" @click="addTile" :disabled="!newTile.title || !newTile.description">Сохранить</button>
+                <button class="folder-btn" @click="resetTile">Очистить</button>
+              </div>
+            </li>
+          </ul>
+        </section>
       </section>
 
+      <!-- Clickmedia -->
       <section v-if="activeFolder === 'clickmedia'">
-        <h2 class="title-h2">Кликмедиа · Видео-работы</h2>
+        <h2 class="title-h2">Видео Clickmedia</h2>
+
+        <div class="add-panel">
+          <div v-if="!isAdding">
+            <p class="p-text">Добавьте новое видео: перетащите файл или выберите вручную, затем заполните название, описание и теги.</p>
+            <div class="add-actions">
+              <button class="primary-btn" @click="startAddVideo">Добавить видео</button>
+            </div>
+          </div>
+          <div v-else>
+            <p class="p-text">Шаг {{ addStep }} из 4 — {{ stepLabel }}</p>
+            <div
+              class="dropzone"
+              :class="{ dragover: isDragOver }"
+              @dragover.prevent="isDragOver = true"
+              @dragleave.prevent="isDragOver = false"
+              @drop.prevent="handleDrop($event)"
+            >
+              <p class="p-text" v-if="!newVideo.fileName">Перетащите видео сюда</p>
+              <p class="p-text" v-else>Файл: {{ newVideo.fileName }}</p>
+              <input type="file" accept="video/*" @change="handleFileSelect" style="margin-top:12px;" />
+            </div>
+
+            <div class="input-row" v-if="newVideo.fileName">
+              <label class="tagline">Название</label>
+              <input class="text-input" type="text" v-model="newVideo.title" placeholder="Например, Обзор платформы" @input="updateStep" />
+            </div>
+            <div class="input-row" v-if="newVideo.fileName">
+              <label class="tagline">Описание</label>
+              <textarea class="text-input" rows="3" v-model="newVideo.description" placeholder="Кратко о содержании" @input="updateStep"></textarea>
+            </div>
+            <div class="input-row" v-if="newVideo.fileName">
+              <label class="tagline">Теги (через запятую)</label>
+              <input class="text-input" type="text" v-model="newVideo.tags" placeholder="frontend, vue, demo" @input="updateStep" />
+            </div>
+
+            <div class="add-actions">
+              <button
+                class="primary-btn"
+                @click="saveVideo"
+                :disabled="!newVideo.fileName || !newVideo.title || !newVideo.description"
+              >
+                Сохранить
+              </button>
+              <button class="folder-btn" @click="cancelAdd">Отмена</button>
+            </div>
+          </div>
+        </div>
 
         <ul class="cards">
           <li 
@@ -66,13 +148,14 @@
           >
             <h3 class="title-h3">{{video.title}}</h3>
             <p class="p-text">{{video.description}}</p>
+            <p class="video-tags" v-if="video.tags">Теги: {{ video.tags }}</p>
             <a 
               class="p-text"
               :href="video.link"
-              target="_blank"
+              target="_self"
               rel="noopener"
             >
-              Открыть работу →
+              Смотреть видео →
             </a>
           </li>
         </ul>
@@ -86,35 +169,157 @@
   </div>
 
   <script>
-    const app = Vue.createApp ({
-      data () {
+    const app = Vue.createApp({
+      data() {
         return {
           activeFolder: null,
-          videos: [
+          activeCategory: null,
+          isAdding: false,
+          isDragOver: false,
+          addStep: 1,
+          newVideo: {
+            fileName: "",
+            title: "",
+            description: "",
+            tags: ""
+          },
+          newTile: {
+            title: "",
+            description: "",
+            code: ""
+          },
+          videos: [],
+          ugruFolders: [
             {
-              id: 1,
-              title: "Велес",
-              description: "Социальная реклама волонтерства для приюта безхозных животных",
-              link: "videos/video1.html"
+              id: 'labs',
+              title: 'Лабораторные',
+              description: 'Работы по фронтенду.',
+              items: [
+                { id: 'lab1', title: 'Лаб 1', description: 'Тестовый код', code: "console.log('lab1');" },
+                { id: 'lab2', title: 'Лаб 2', description: 'Тестовый код', code: "console.log('lab2');" },
+                { id: 'lab3', title: 'Лаб 3', description: 'Тестовый код', code: "console.log('lab3');" }
+              ]
             },
             {
-              id: 2,
-              title: "Холодная война",
-              description: "Видеоролик на исторический конкурс",
-              link: "videos/video2.html"
+              id: 'testing',
+              title: 'Тестирование',
+              description: 'Подпапки с автотестами.',
+              items: [
+                { id: 'test1', title: 'Smoke', description: 'Быстрые проверки', code: "console.log('smoke');" },
+                { id: 'test2', title: 'Regression', description: 'Широкое покрытие', code: "console.log('regression');" }
+              ]
             },
             {
-              id: 1,
-              title: "Скрепка на дом",
-              description: "Социальный ролик для блогера",
-              link: "videos/video3.html"
+              id: 'oop',
+              title: 'ООП',
+              description: 'Паттерны и проектирование.',
+              items: [
+                { id: 'oop1', title: 'Паттерн Singleton', description: 'Демонстрация', code: "class A { static i=null; static get(){ return this.i||=new A();} }\nconsole.log(A.get()===A.get());" }
+              ]
             }
           ]
+        };
+      },
+      computed: {
+        stepLabel() {
+          if (!this.newVideo.fileName) return "Выберите или перетащите файл";
+          if (!this.newVideo.title) return "Укажите название";
+          if (!this.newVideo.description) return "Добавьте описание";
+          return "Добавьте теги (по желанию) и сохраните";
+        },
+        activeCategoryTitle() {
+          const found = this.ugruFolders.find(f => f.id === this.activeCategory);
+          return found ? found.title : "";
+        },
+        activeItems() {
+          const found = this.ugruFolders.find(f => f.id === this.activeCategory);
+          if (!found) return [];
+          return found.items.map(item => ({
+            ...item,
+            link: this.buildLabLink(found.id, item)
+          }));
+        }
+      },
+      methods: {
+        selectCategory(id) {
+          this.activeCategory = id;
+          this.resetTile();
+        },
+        buildLabLink(catId, item) {
+          const title = encodeURIComponent(item.title);
+          const desc = encodeURIComponent(item.description || "");
+          const code = encodeURIComponent(item.code || "console.log('hello');");
+          return `u/page.html?cat=${catId}&id=${item.id}&title=${title}&desc=${desc}&code=${code}`;
+        },
+        addTile() {
+          if (!this.activeCategory) return;
+          const folder = this.ugruFolders.find(f => f.id === this.activeCategory);
+          if (!folder) return;
+          const newItem = {
+            id: `item-${Date.now()}`,
+            title: this.newTile.title,
+            description: this.newTile.description,
+            code: this.newTile.code || "console.log('demo');"
+          };
+          folder.items.push(newItem);
+          this.resetTile();
+        },
+        resetTile() {
+          this.newTile = { title: "", description: "", code: "" };
+        },
+        startAddVideo() {
+          this.isAdding = true;
+          this.addStep = 1;
+          this.newVideo = { fileName: "", title: "", description: "", tags: "" };
+        },
+        handleFileSelect(event) {
+          const file = event.target.files?.[0];
+          if (!file) return;
+          this.newVideo.fileName = file.name;
+          this.updateStep();
+        },
+        handleDrop(event) {
+          this.isDragOver = false;
+          const file = event.dataTransfer?.files?.[0];
+          if (!file) return;
+          this.newVideo.fileName = file.name;
+          this.updateStep();
+        },
+        updateStep() {
+          if (!this.newVideo.fileName) {
+            this.addStep = 1;
+          } else if (!this.newVideo.title) {
+            this.addStep = 2;
+          } else if (!this.newVideo.description) {
+            this.addStep = 3;
+          } else {
+            this.addStep = 4;
+          }
+        },
+        saveVideo() {
+          if (!this.newVideo.fileName || !this.newVideo.title || !this.newVideo.description) return;
+          const encodedTitle = encodeURIComponent(this.newVideo.title);
+          const encodedFile = encodeURIComponent(this.newVideo.fileName);
+          const newEntry = {
+            id: Date.now(),
+            title: this.newVideo.title,
+            description: this.newVideo.description,
+            tags: this.newVideo.tags,
+            link: `videos/video.html?file=${encodedFile}&title=${encodedTitle}`
+          };
+          this.videos.push(newEntry);
+          this.cancelAdd();
+        },
+        cancelAdd() {
+          this.isAdding = false;
+          this.isDragOver = false;
+          this.addStep = 1;
+          this.newVideo = { fileName: "", title: "", description: "", tags: "" };
         }
       }
-    })
+    });
 
-    app.mount("#app")
+    app.mount("#app");
   </script>
 </body>
 </html>
