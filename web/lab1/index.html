@@ -4,59 +4,117 @@
   <meta charset="UTF-8">
   <title>Моя первая страница</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
 </head>
 
 <body>
+  <div id="app">
+    <header>
+      <h1 class="title-h1">Портфолио Вячеслава</h1>
+      <p class="p-text">ЮГУ · Clickmedia</p>
+    </header>
 
-  <header>
-    <nav>
-      <a href="index.html">Главная</a>
-      <a href="contacts.html">Контакты</a>
-      <a href="gallery.html">Галерея</a>
-    </nav>
-  </header>
+    <main>
+      <section class="folders">
+        <button
+          class="folder-btn"
+          @click="activeFolder = 'UGRASU'"
+        >
+          ЮГУ
+        </button>
 
-  <main>
-    <h1 class="title-h1">Это мой сайт</h1>
-    <p class="p-text">Я только учусь создавать сайты</p>
+        <button
+          class="folder-btn"
+          @click="activeFolder = 'clickmedia'"
+        >
+          Кликмедиа
+        </button>
+      </section>
 
-    <h3 class="title-h3">Вот что получилось</h3>
-    <h4 class="title-h4">это кстати заголовок</h4>
-    <p class="p-text">а тут можно писать все что угодно, потому что это параграф</p>
+      <p class="p-text" v-if="!activeFolder">
+        Выберите папку, чтобы посмотреть работы.
+      </p>
 
-    <h3 class="title-h3">это тоже заголовок</h3>
-    <p class="p-text">еще один параграф, вдрг я захочу написать больше текста</p>
+      <section v-if="activeFolder === 'UGRASU'">
+        <h2 class="title-h2">ЮГУ · Учебные работы</h2>
+        <ul class="cards">
+          <li class="card">
+            <h3 class="title-h3">Веб-разработка</h3>
+            <p class="p-text">Лабы, мини-сайты</p>
+          </li>
 
-    <h3 class="title-h3">и еще заголовок</h3>
-    <p class="p-text">под ним тоже будет текст, потому что я так решил</p>
+          <li class="card">
+            <h3 class="title-h3">ООП</h3>
+            <p class="p-text">Проекты на C#/Python с классами и объектами.</p>
+          </li>
 
-    <hr>
+          <li class="card">
+            <h3 class="title-h3">Тестирование</h3>
+            <p class="p-text">Проекты по тестированию ПО</p>
+          </li>
+        </ul>
+      </section>
 
-    <p class="p-text">фио разработчика</p>
-  </main>
+      <section v-if="activeFolder === 'clickmedia'">
+        <h2 class="title-h2">Кликмедиа · Видео-работы</h2>
 
-  <footer>
-    <h3 class="title-h3">Это подвал</h3>
-    <p class="p-text">здесь будут контакты для сайта</p>
+        <ul class="cards">
+          <li 
+            class="card"
+            v-for="video in videos"
+            :key="video.id"
+          >
+            <h3 class="title-h3">{{video.title}}</h3>
+            <p class="p-text">{{video.description}}</p>
+            <a 
+              class="p-text"
+              :href="video.link"
+              target="_blank"
+              rel="noopener"
+            >
+              Открыть работу →
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
 
-    <hr>
+     <footer>
+      <hr />
+      <p class="p-text">© {{ new Date().getFullYear() }} Vyacheslav · Clickmedia</p>
+    </footer>
+  </div>
 
-    <!-- список из задания после hr -->
-    <ul>
-      <li>это произвольный текст 6 слов кстати</li>
-      <li>+7 951 980-68-47</li>
-      <li>v.kazsantsev@icloud.com</li>
-    </ul>
+  <script>
+    const app = Vue.createApp ({
+      data () {
+        return {
+          activeFolder: null,
+          videos: [
+            {
+              id: 1,
+              title: "Велес",
+              description: "Социальная реклама волонтерства для приюта безхозных животных",
+              link: "videos/video1.html"
+            },
+            {
+              id: 2,
+              title: "Холодная война",
+              description: "Видеоролик на исторический конкурс",
+              link: "videos/video2.html"
+            },
+            {
+              id: 1,
+              title: "Скрепка на дом",
+              description: "Социальный ролик для блогера",
+              link: "videos/video3.html"
+            }
+          ]
+        }
+      }
+    })
 
-    <!-- ещё один список контактов (как в части 2 п.2.c) -->
-    <ul>
-      <li>звоните в любое время</li>
-      <li>+7 922 436-21-63</li>
-      <li>vyacheslav_kazantsev@list.ru</li>
-    </ul>
-
-    <p class="p-text">Казанцев Вячеслав Андреевич</p>
-  </footer>
-
+    app.mount("#app")
+  </script>
 </body>
 </html>
