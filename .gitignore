@@ -39,3 +39,5 @@
 /main.cpp
 /output
 /python
+# Lab video assets
+web/lab1/videos/*.mp4
