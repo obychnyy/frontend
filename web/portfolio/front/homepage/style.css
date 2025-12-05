@@ -149,24 +149,8 @@ body {
     gap: 40px;
 }
 
-.hero-text1 {
+.hero-text {
     max-width: 600px;
-    text-align: right;
-}
-
-.hero-text h2 {
-    font-size: 42px;
-    margin-bottom: 10px;
-}
-
-.hero-text p {
-    color: #555;
-    font-size: 18px;
-}
-
-.hero-text2 {
-    max-width: 600px;
-    text-align: left;
 }
 
 .hero-text h2 {
