@@ -1,0 +1,19 @@
+﻿11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Local timezone is (UTC+05:00) Екатеринбург, стандартное время
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : vs-intellicode-base-models read: Content-Length: 284
+
+{"jsonrpc":"2.0","id":0,"method":"ConfigureServiceAsync","params":[{"CacheLocation":"/Users/vyacheslav/.vscode/extensions/ms-dotnettools.vscodeintellicode-csharp-2.2.3-darwin-arm64/starsModelCache","InternalTraceEnabled":false,"CustomModelsEnabled":false,"DeepLearningEnabled":true}]}
+11/22/2025 10:25:54 Екатеринбург, стандартное время: Information : 3 :Listening started.
+11/22/2025 10:25:54 Екатеринбург, стандартное время: Information : 7 :{"id":0,"method":"ConfigureServiceAsync"}
+11/22/2025 10:25:54 Екатеринбург, стандартное время: Information : 6 :Received request "0" for method "ConfigureServiceAsync".
+11/22/2025 10:25:54 Екатеринбург, стандартное время: Information : 9 :Invoking Microsoft.VisualStudio.IntelliCode.BaseModelService.BaseServiceTarget.ConfigureServiceAsync(ModelServiceConfiguration)
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Start : ConfigureServiceAsync
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Stop : ConfigureServiceAsync
+11/22/2025 10:25:54 Екатеринбург, стандартное время: Information : 8 :{"id":0}
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : vs-intellicode-base-models write: Content-Length: 38
+
+{"jsonrpc":"2.0","id":0,"result":null}
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : vs-intellicode-base-models read: end of stream
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : Waiting for 'vs-intellicode-base-models' instance to complete its completionTask.
+11/22/2025 10:27:43 Екатеринбург, стандартное время: Information : 13 :Connection closing (RemotePartyTerminated: Достигнут конец потока.). 
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : Disposed 'vs-intellicode-base-models' via 'completionTask' method.
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : Finishing shutting down service: vs-intellicode-base-models.

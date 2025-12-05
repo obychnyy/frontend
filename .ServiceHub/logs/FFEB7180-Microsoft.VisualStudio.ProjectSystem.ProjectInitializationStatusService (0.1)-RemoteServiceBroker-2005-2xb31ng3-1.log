@@ -1,0 +1,9 @@
+﻿11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Local timezone is (UTC+05:00) Екатеринбург, стандартное время
+11/22/2025 10:25:54 Екатеринбург, стандартное время: Information : 3 :Listening started.
+11/22/2025 10:25:54 Екатеринбург, стандартное время: Information : 7 :{"id":2,"method":"handshake"}
+11/22/2025 10:25:54 Екатеринбург, стандартное время: Information : 6 :Received request "2" for method "handshake".
+11/22/2025 10:25:54 Екатеринбург, стандартное время: Information : 9 :Invoking Microsoft.VisualStudio.Utilities.ServiceBroker.GlobalBrokeredServiceContainer+View.HandshakeAsync(ServiceBrokerClientMetadata, CancellationToken)
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Start : handshake
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Stop : handshake
+11/22/2025 10:25:54 Екатеринбург, стандартное время: Information : 8 :{"id":2}
+11/22/2025 10:27:43 Екатеринбург, стандартное время: Information : 13 :Connection closing (RemotePartyTerminated: Достигнут конец потока.). 

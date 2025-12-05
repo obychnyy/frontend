@@ -42,7 +42,7 @@
         <ul class="cards">
           <li
             class="card"
-            v-for="folder in ugruFolders"
+            v-for="folder in ugrasuFolders"
             :key="folder.id"
             @click="selectCategory(folder.id)"
             style="cursor: pointer;"
@@ -189,7 +189,7 @@
             code: ""
           },
           videos: [],
-          ugruFolders: [
+          ugrasuFolders: [
             {
               id: 'labs',
               title: 'Лабораторные',
@@ -228,11 +228,11 @@
           return "Добавьте теги (по желанию) и сохраните";
         },
         activeCategoryTitle() {
-          const found = this.ugruFolders.find(f => f.id === this.activeCategory);
+          const found = this.ugrasuFolders.find(f => f.id === this.activeCategory);
           return found ? found.title : "";
         },
         activeItems() {
-          const found = this.ugruFolders.find(f => f.id === this.activeCategory);
+          const found = this.ugrasuFolders.find(f => f.id === this.activeCategory);
           if (!found) return [];
           return found.items.map(item => ({
             ...item,
@@ -253,7 +253,7 @@
         },
         addTile() {
           if (!this.activeCategory) return;
-          const folder = this.ugruFolders.find(f => f.id === this.activeCategory);
+          const folder = this.ugrasuFolders.find(f => f.id === this.activeCategory);
           if (!folder) return;
           const newItem = {
             id: `item-${Date.now()}`,

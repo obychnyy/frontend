@@ -1,0 +1,62 @@
+﻿11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Local timezone is (UTC+05:00) Екатеринбург, стандартное время
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Service Hub .NET service module host started. Host id: dotnet$C94B8CFE-E3FD-4BAF-A941-2866DBB566FE. Controller pipe: net.pipe://2014496DFC. PID: 2033
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : hubHostClr read: Content-Length: 116
+
+{"jsonrpc":"2.0","id":2,"method":"InitializeHostAsync","params":[{"HostsRootDirectory":".","AppConfigFallback":""}]}
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : hubHostClr write: Content-Length: 79
+
+{"jsonrpc":"2.0","id":2,"result":"dotnet$C94B8CFE-E3FD-4BAF-A941-2866DBB566FE"}
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : hubHostClr read: Content-Length: 1053
+
+{"jsonrpc":"2.0","id":4,"method":"StartServiceAsync","params":[{"name":"Microsoft.VisualStudio.TestWindow.VSCode.Service","host":"dotnet","hostId":"C94B8CFE-E3FD-4BAF-A941-2866DBB566FE","serviceBaseDirectory":"/Users/vyacheslav/.vscode/extensions/ms-dotnettools.csdevkit-1.80.7-darwin-arm64/components/VSUnitTesting/platforms/darwin-arm64/node_modules/@microsoft/visualstudio-testwindow-vscode-service.darwin-arm64","entryPoint":{"assemblyPath":"/Users/vyacheslav/.vscode/extensions/ms-dotnettools.csdevkit-1.80.7-darwin-arm64/components/VSUnitTesting/platforms/darwin-arm64/node_modules/@microsoft/visualstudio-testwindow-vscode-service.darwin-arm64/Microsoft.VisualStudio.TestWindow.VSCode.Service.dll","fullClassName":"Microsoft.VisualStudio.TestWindow.VSCode.Service.TestWindowVSCodeServiceFactory"}},{"ActivationArguments":{"__servicehub__ServiceHubRemoteServiceBrokerPipeName":"/Users/vyacheslav/.ServiceHub/f4a1b2d60c/5361f0fcd1","__servicehub__RequestedServiceVersion":"0.1"},"ClientCredentials":{},"ClientCulture":"ru","ClientUICulture":"ru"}]}Content-Length: 1025
+
+{"jsonrpc":"2.0","id":3,"method":"StartServiceAsync","params":[{"name":"vs-intellicode-base-models","host":"dotnet","hostId":"C94B8CFE-E3FD-4BAF-A941-2866DBB566FE","serviceBaseDirectory":"/Users/vyacheslav/.vscode/extensions/ms-dotnettools.vscodeintellicode-csharp-2.2.3-darwin-arm64/components/model-service/platforms/darwin-arm64/node_modules/@vsintellicode/model-service.darwin-arm64","entryPoint":{"assemblyPath":"/Users/vyacheslav/.vscode/extensions/ms-dotnettools.vscodeintellicode-csharp-2.2.3-darwin-arm64/components/model-service/platforms/darwin-arm64/node_modules/@vsintellicode/model-service.darwin-arm64/Microsoft.VisualStudio.IntelliCode.CSharp.BaseModelService.dll","fullClassName":"Microsoft.VisualStudio.IntelliCode.BaseModelService.BaseModelServiceFactory"}},{"ActivationArguments":{"__servicehub__ServiceHubRemoteServiceBrokerPipeName":"/Users/vyacheslav/.ServiceHub/f4a1b2d60c/4b9c19e0b2","__servicehub__RequestedServiceVersion":"0.1"},"ClientCredentials":{},"ClientCulture":"ru","ClientUICulture":"ru"}]}
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : CLR host received start request for service 'Microsoft.VisualStudio.TestWindow.VSCode.Service'
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Loading service module assembly '/Users/vyacheslav/.vscode/extensions/ms-dotnettools.csdevkit-1.80.7-darwin-arm64/components/VSUnitTesting/platforms/darwin-arm64/node_modules/@microsoft/visualstudio-testwindow-vscode-service.darwin-arm64/Microsoft.VisualStudio.TestWindow.VSCode.Service.dll' from '/Users/vyacheslav/.vscode/extensions/ms-dotnettools.csdevkit-1.80.7-darwin-arm64/components/VSUnitTesting/platforms/darwin-arm64/node_modules/@microsoft/visualstudio-testwindow-vscode-service.darwin-arm64'
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Starting service module 'Microsoft.VisualStudio.TestWindow.VSCode.Service'. Class: Microsoft.VisualStudio.TestWindow.VSCode.Service.TestWindowVSCodeServiceFactory, Supported Version: 
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Started service 'Microsoft.VisualStudio.TestWindow.VSCode.Service'. Pipe name: /Users/vyacheslav/.ServiceHub/f4a1b2d60c/3f2b1dfa84, Supported Version: 
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : hubHostClr write: Content-Length: 87
+
+{"jsonrpc":"2.0","id":4,"result":"/Users/vyacheslav/.ServiceHub/f4a1b2d60c/3f2b1dfa84"}
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : CLR host received start request for service 'vs-intellicode-base-models'
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Loading service module assembly '/Users/vyacheslav/.vscode/extensions/ms-dotnettools.vscodeintellicode-csharp-2.2.3-darwin-arm64/components/model-service/platforms/darwin-arm64/node_modules/@vsintellicode/model-service.darwin-arm64/Microsoft.VisualStudio.IntelliCode.CSharp.BaseModelService.dll' from '/Users/vyacheslav/.vscode/extensions/ms-dotnettools.vscodeintellicode-csharp-2.2.3-darwin-arm64/components/model-service/platforms/darwin-arm64/node_modules/@vsintellicode/model-service.darwin-arm64'
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Starting service module 'vs-intellicode-base-models'. Class: Microsoft.VisualStudio.IntelliCode.BaseModelService.BaseModelServiceFactory, Supported Version: 
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Started service 'vs-intellicode-base-models'. Pipe name: /Users/vyacheslav/.ServiceHub/f4a1b2d60c/f4d75a0c88, Supported Version: 
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : hubHostClr write: Content-Length: 87
+
+{"jsonrpc":"2.0","id":3,"result":"/Users/vyacheslav/.ServiceHub/f4a1b2d60c/f4d75a0c88"}
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : A new client connected to CLR service module 'Microsoft.VisualStudio.TestWindow.VSCode.Service'
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : A new client connected to CLR service module 'vs-intellicode-base-models'
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Found FactoryVersion=Version2 for service : vs-intellicode-base-models.
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Service 'Microsoft.VisualStudio.IntelliCode.BaseModelService.BaseModelServiceFactory' implements IServiceHubServiceFactory. Creating factory instance and caching it.
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Found FactoryVersion=Version2 for service : Microsoft.VisualStudio.TestWindow.VSCode.Service.
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Service 'Microsoft.VisualStudio.TestWindow.VSCode.Service.TestWindowVSCodeServiceFactory' implements IServiceHubServiceFactory. Creating factory instance and caching it.
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : hubHostClr write: Content-Length: 110
+
+{"jsonrpc":"2.0","method":"HostServicesStartedAsync","params":["dotnet$C94B8CFE-E3FD-4BAF-A941-2866DBB566FE"]}
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Creating service Microsoft.VisualStudio.IntelliCode.BaseModelService.BaseModelServiceFactory from factory with FactoryVersion=Version2 and ClientRequestedVersion=0.1.
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Setting up RPC connection for service 'Microsoft.VisualStudio.IntelliCode.BaseModelService.BaseModelServiceFactory' from factory
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Creating service Microsoft.VisualStudio.TestWindow.VSCode.Service.TestWindowVSCodeServiceFactory from factory with FactoryVersion=Version2 and ClientRequestedVersion=0.1.
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Setting up RPC connection for service 'Microsoft.VisualStudio.TestWindow.VSCode.Service.TestWindowVSCodeServiceFactory' from factory
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Completed RPC connection setup for service 'Microsoft.VisualStudio.IntelliCode.BaseModelService.BaseModelServiceFactory' from factory
+11/22/2025 10:25:54 Екатеринбург, стандартное время : Information : Completed RPC connection setup for service 'Microsoft.VisualStudio.TestWindow.VSCode.Service.TestWindowVSCodeServiceFactory' from factory
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : Checking if 'Microsoft.VisualStudio.IntelliCode.BaseModelService.BaseModelServiceFactory' implements Microsoft.VisualStudio.Threading.IAsyncDisposable.
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : hubHostClr write: Content-Length: 108
+
+{"jsonrpc":"2.0","method":"HostServicesEndedAsync","params":["dotnet$C94B8CFE-E3FD-4BAF-A941-2866DBB566FE"]}
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : Checking if 'Microsoft.VisualStudio.IntelliCode.BaseModelService.BaseModelServiceFactory' implements System.IAsyncDisposable.
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : Checking if 'Microsoft.VisualStudio.IntelliCode.BaseModelService.BaseModelServiceFactory' implements System.IDisposable.
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : Checking if 'Microsoft.VisualStudio.TestWindow.VSCode.Service.TestWindowVSCodeServiceFactory' implements Microsoft.VisualStudio.Threading.IAsyncDisposable.
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : Checking if 'Microsoft.VisualStudio.TestWindow.VSCode.Service.TestWindowVSCodeServiceFactory' implements System.IAsyncDisposable.
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : Checking if 'Microsoft.VisualStudio.TestWindow.VSCode.Service.TestWindowVSCodeServiceFactory' implements System.IDisposable.
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Information : hubHostClr read: end of stream
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Error : Disconnected hubHostClr RemotePartyTerminated error: : Достигнут конец потока. at 
+11/22/2025 10:27:43 Екатеринбург, стандартное время : Error : Controller callback pipe is connected: 'False'
+    Controller callback pipe has reached the end: 'True'
+    Controller callback pipe has been disposed: 'False'
+    JsonRpc object is disposed: 'False'
+    MessageHandler is disposed: 'False'
+    Reason: 'RemotePartyTerminated'
+    Description: 'Достигнут конец потока.'
+    Host is disposed: 'False'
+

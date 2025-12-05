@@ -1,0 +1,8 @@
+﻿11/22/2025 10:25:53 Екатеринбург, стандартное время : Information : Local timezone is (UTC+05:00) Екатеринбург, стандартное время
+11/22/2025 10:25:53 Екатеринбург, стандартное время : Information : Acquiring semaphore to try to start the Controller.
+11/22/2025 10:25:53 Екатеринбург, стандартное время : Information : Beginning to try to start the Controller.
+11/22/2025 10:25:53 Екатеринбург, стандартное время : Information : Starting hub controller
+11/22/2025 10:25:53 Екатеринбург, стандартное время : Information : Setting environment variable 'ServiceHubCurrentOsLocale' to 'ru' in the "/Users/vyacheslav/.vscode/extensions/ms-dotnettools.csdevkit-1.80.7-darwin-arm64/components/vs-green-server/platforms/darwin-arm64/node_modules/@microsoft/visualstudio-controller.darwin-arm64/Microsoft.VisualStudio.Code.ServiceController" process.
+11/22/2025 10:25:53 Екатеринбург, стандартное время : Information : Setting environment variable 'ServiceHubLocationServicePipeName' to 'f4a1b2d60c' in the "/Users/vyacheslav/.vscode/extensions/ms-dotnettools.csdevkit-1.80.7-darwin-arm64/components/vs-green-server/platforms/darwin-arm64/node_modules/@microsoft/visualstudio-controller.darwin-arm64/Microsoft.VisualStudio.Code.ServiceController" process.
+11/22/2025 10:25:53 Екатеринбург, стандартное время : Information : Attempting to connect to location service pipe at 'f4a1b2d60c'.
+11/22/2025 10:25:53 Екатеринбург, стандартное время : Information : Hub controller started. PID 2014
