@@ -3,25 +3,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Портфолио</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<header class="header">
-    <a class="menu" href="../homepage/homepage.html">Уолтер, домой</a>
-    <a class="menu" href="../ugrasu/main.html">ЮГУ</a>
-    <a class="menu" href="../clickmedia/main.html">Кликмедиа</a>
-</header>
-
 <body>
-    <h1 class="main-text">Портфолио Вячеслава</h1>
-    <p class="main-paragrah">здесь вы можете найти почти любой мой проект. сайт создан для демонстрации и не несет за собой рекламных целей</p>
-    <div class="big-buttons">
-        <a href="../ugrasu/main.html" class="big-btn" style="background-image: url('../../gallery/ugrasu.jpg');">
-            <span>ЮГУ</span>
-        </a>
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
 
-        <a href="../clickmedia/main.html" class="big-btn" style="background-image: url('../../gallery/clickmedia.jpg');">
-            <span>Clickmedia</span>
-        </a>
-    </div>
+    <header class="header">
+        <nav class="nav">
+            <a class="menu" href="../homepage/homepage.html">Уолтер, домой</a>
+            <a class="menu" href="../ugrasu/main.html">ЮГУ</a>
+            <a class="menu" href="../clickmedia/main.html">Кликмедиа</a>
+        </nav>
+    </header>
 
+    <h1 class="title">Портфолио Вячеслава</h1>
+    <p class="subtitle">
+        Здесь вы можете найти почти любой мой проект. 
+        Сайт создан для демонстрации и не несет за собой рекламных целей.
+    </p>
+
+    <section class="main-blocks">
+        <div class="hero-block">
+            <a href="../ugrasu/main.html" class="glass-block">
+                <img src="../../gallery/ugrasu.png" alt="ЮГУ">
+                <span>ЮГУ</span>
+            </a>
+
+            <div class="hero-text1">
+                <h2>Программирование</h2>
+                <p>
+                    Я являюсь студентом Югорского государственного 
+                    университета по направлению: 
+                    "Информатика и вычислительная техника". 
+                    Здесь вы можете найти мои работы
+                </p>
+            </div>
+        </div>
+
+        <div class="hero-block reverse">
+            <div class="hero-text2">
+                <h2>Clickmedia</h2>
+                <p>
+                    Также я являюсь учредителем и 
+                    единственным участником ООО "Кликмедиа". 
+                    Здесь вы можете посмореть работы нашей студии
+                </p>
+            </div>
+
+            <a href="../clickmedia/main.html" class="glass-block">
+                <img src="../../gallery/clickmedia.png" alt="Clickmedia">
+                <span>Clickmedia</span>
+            </a>
+        </div>
+    </section>
 </body>
