@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЮГУ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="blob"></div>
+    <div class="blob"></div>
+    <div class="blob"></div>
+
+    <header class="header">
+        <nav class="nav">
+            <a class="menu" href="main.html">Назад</a>
+            <a class="menu" href="/front/homepage/homepage.html">Уолтер, домой</a>
+            <a class="menu" href="../ugrasu/main.html">ЮГУ</a>
+            <a class="menu" href="../clickmedia/main.html">Кликмедиа</a>
+        </nav>
+    </header>
+
+    <div class="pageContainer">
+        <h1 class="title">Создание модуля</h1>
+        <div class="formContainer">
+
+            <textarea id="title" placeholder="Название"></textarea><br>
+            <textarea id="description" placeholder="Описание"></textarea><br>
+            <textarea id="code1" placeholder="Сюда HTML"></textarea><br>
+
+            <label class="checkbox-label">
+                <input type="checkbox" id="addCode2">
+                <span class="checkbox-custom"></span>
+                Добавить ещё поле кода
+            </label>
+
+            <textarea id="code2" placeholder="Сюда CSS" style="display:none;"></textarea><br>
+
+            <button onclick="saveModule()">Сохранить</button>
+        </div>
+    </div>
+
+    <script src="js/editor.js"></script>
+    <script>
+        document.getElementById("extraCode").addEventListener("change", function () {
+            const code2 = document.getElementById("code2");
+            code2.style.display = this.checked ? "block" : "none";
+        });
+    </script>
+
+
+</body>
+</html>
