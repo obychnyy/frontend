@@ -72,10 +72,10 @@ body {
 }
 
 .nav {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1em;
+    
 }
 
 .nav a {
@@ -108,9 +108,10 @@ body {
     display: flex;
     flex-direction: column;
     gap: 60px;
-    margin: 68px 40px;
-    max-width: 1200px;
+    margin: 40px 40px;
+    max-width: 1400px;
     flex-wrap: wrap;
+    object-fit: contain;
 }
 
 .glass-block {
@@ -151,16 +152,22 @@ body {
 
 .hero-text {
     max-width: 600px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    text-align: center;
+    text-size-adjust: 40px;
 }
 
 .hero-text h2 {
     font-size: 42px;
-    margin-bottom: 10px;
+    display: flex;
 }
 
 .hero-text p {
     color: #555;
     font-size: 18px;
+    display: flex;
 }
 
 .glass-block img {
@@ -171,4 +178,8 @@ body {
 .hero-button:hover {
     transform: scale(1.05);
     background: #222;
+}
+
+@media (max-width: 900px) {
+    
 }
