@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Портфолио</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Clickmedia</title>
+  <link rel="stylesheet" href="../homepage/style.css">
 </head>
 
 <body>
@@ -14,7 +14,7 @@
     <a href="/front/homepage/homepage.html" class="nav-link">Главная</a>
     <a href="/front/ugrasu/index.html" class="nav-link">ЮГУ</a>
     <a href="/front/clickmedia/index.html" class="nav-link">Clickmedia</a>
-    <a href="/front/contacts/contacts.html" class="nav-link">Контакты</a>
+    <a href="/front/frontend/contacts.html" class="nav-link">Контакты</a>
   </nav>
 
   <details class="burger">
@@ -23,46 +23,53 @@
       <a href="/front/homepage/homepage.html">Главная</a>
       <a href="/front/ugrasu/index.html">ЮГУ</a>
       <a href="/front/clickmedia/index.html">Clickmedia</a>
-      <a href="/front/contacts/contacts.html">Контакты</a>
+      <a href="/front/frontend/contacts.html">Контакты</a>
     </nav>
   </details>
 </header>
 
-
 <main class="container">
 
-  <h1 class="title">Портфолио Вячеслава</h1>
+  <h1 class="title">Clickmedia</h1>
   <p class="subtitle">
-    Учебные, личные и коммерческие медиа и code проекты
+    Коммерческие и студийные видеопроекты.
+    Каждый проект открывается на отдельной странице.
   </p>
 
-  <section class="block">
-    <div class="text">
-      <h2>Программирование</h2>
-      <p>
-        Студент Югорского государственного университета по направлению
-        «Информатика и вычислительная техника».
-      </p>
-    </div>
+  <section class="block-grid">
 
-    <a href="../ugrasu/main.html" class="button">
-      <img src="../../gallery/ugrasu.png" alt="">
-      <span>ЮГУ</span>
+    <a
+      href="projects/video1.html"
+      target="_blank"
+      class="button"
+    >
+      <span>Рекламный ролик №1</span>
     </a>
-  </section>
 
-  <section class="block">
-    <div class="text">
-      <h2>Clickmedia</h2>
-      <p>
-        Основатель студии Clickmedia. Создание режиссерского видео под любые задачи.
-      </p>
-    </div>
-
-    <a href="../clickmedia/main.html" class="button">
-      <img src="../../gallery/clickmedia.png" alt="">
-      <span>Clickmedia</span>
+    <a
+      href="projects/video2.html"
+      target="_blank"
+      class="button"
+    >
+      <span>Промо для бренда</span>
     </a>
+
+    <a
+      href="projects/video3.html"
+      target="_blank"
+      class="button"
+    >
+      <span>Корпоративное видео</span>
+    </a>
+
+    <a
+      href="projects/video4.html"
+      target="_blank"
+      class="button"
+    >
+      <span>Социальный проект</span>
+    </a>
+
   </section>
 
 </main>
@@ -75,7 +82,7 @@
   </div>
 
   <div class="footer-right">
-    <span class="location-label">Адрес</span>
+    <span class="location-label">Локация</span>
     <a
       href="https://maps.google.com/?q=Ханты-Мансийск,+ул.+Чехова,+16"
       target="_blank"
